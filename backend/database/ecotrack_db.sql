@@ -1,0 +1,1 @@
+CREATE DATABASE ecotrack_db;
