@@ -1,7 +1,7 @@
 
-  # EcoTrack UI Design
+  # EcoTrack Community Platform
 
-  This is a code bundle for EcoTrack UI Design. The original project is available at https://www.figma.com/design/gcjVfhltT1ptPkMjDDVEFX/EcoTrack-UI-Design.
+  This is a code bundle for EcoTrack Community Platform. The original project is available at https://www.figma.com/design/23vj06eHwuaVC60ujWl8Lq/EcoTrack-Community-Platform.
 
   ## Running the code
 
