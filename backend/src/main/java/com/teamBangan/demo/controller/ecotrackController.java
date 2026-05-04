@@ -1,42 +1,29 @@
 package com.teamBangan.demo.controller;
 
+import com.teamBangan.demo.model.ecotrackModel;
+import com.teamBangan.demo.repository.ecotrackRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/ecotrack")
-@CrossOrigin(origins = "*") // Useful for connecting your frontend during development
+@CrossOrigin(origins = "*") 
 public class ecotrackController {
 
-    /* 
-       Note: You will eventually need to @Autowired your Service or Repository here.
-       Example:
-       @Autowired
-       private EcoTrackService ecoService;
-    */
+    @Autowired
+    private ecotrackRepository repository;
 
-    // 1. Get all tracking records
-    @GetMapping("/records")
-    public String getAllRecords() {
-        return "List of all eco-tracking data";
+    // Get all eco-tracking logs
+    @GetMapping("/all")
+    public List<ecotrackModel> getAll() {
+        return repository.findAll();
     }
 
-    // 2. Add a new tracking entry
+    // Add a new log
     @PostMapping("/add")
-    public String addRecord(@RequestBody Object record) {
-        // Logic to save the record to your MySQL database
-        return "Record added successfully!";
-    }
-
-    // 3. Update an existing record
-    @PutMapping("/update/{id}")
-    public String updateRecord(@PathVariable Long id, @RequestBody Object updatedData) {
-        return "Record with ID " + id + " updated.";
-    }
-
-    // 4. Delete a record
-    @DeleteMapping("/delete/{id}")
-    public String deleteRecord(@PathVariable Long id) {
-        return "Record with ID " + id + " deleted.";
+    public ecotrackModel add(@RequestBody ecotrackModel data) {
+        return repository.save(data);
     }
 }
